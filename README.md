@@ -1,1 +1,1 @@
-# cy-geopy
+# Cyprus Population Analysis
