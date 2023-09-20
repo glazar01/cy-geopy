@@ -95,10 +95,28 @@ place_data = {}
 for place in populationPerPlace:
     place_data[place.location] = place.population
 
+# Create a dictionary to store city populations by coordinates
+city_coordinates_data = {}
+for city in populationPerCity:
+    city_coordinates_data[f"({city.coordinates.lat}, {city.coordinates.long})"] = city.population
+
+# Create a dictionary to store place populations by coordinates
+place_coordinates_data = {}
+for place in populationPerPlace:
+    place_coordinates_data[f"({place.coordinates.lat}, {place.coordinates.long})"] = place.population
+
+# # Save city data to JSON
+# with open('city_population.json', 'w') as city_file:
+#     json.dump(city_data, city_file)
+
+# # Save place data to JSON
+# with open('place_population.json', 'w') as place_file:
+#     json.dump(place_data, place_file)
+
 # Save city data to JSON
-with open('city_population.json', 'w') as city_file:
-    json.dump(city_data, city_file)
+with open('city_population_by_coordinates.json', 'w') as city_file:
+    json.dump(city_coordinates_data, city_file)
 
 # Save place data to JSON
-with open('place_population.json', 'w') as place_file:
-    json.dump(place_data, place_file)
+with open('place_population_by_coordinates.json', 'w') as place_file:
+    json.dump(place_coordinates_data, place_file)
